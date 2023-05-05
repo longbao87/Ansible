@@ -1,0 +1,20 @@
+---
+- name: Report OS of Cisco Devices
+  hosts: all
+  connection: network_cli
+  gather_facts: no
+  tasks:
+    - name: Get information devices
+      ios_facts:
+
+    - name: Export information devices
+      template:
+        src: os_report.j2
+        dest: /home/baolnguyen/baolnguyen-code/git/clone/Ansible/OS-Export/{{ inventory_hostname }}.md
+
+    - name: Collect all information to One File
+      assemble:
+        src: /home/baolnguyen/baolnguyen-code/git/clone/Ansible/OS-Export/
+        dest: /home/baolnguyen/baolnguyen-code/git/clone/Ansible/OS-Export/network_devices_os_report.md
+      delegate_to: localhost
+      run_once: yes
