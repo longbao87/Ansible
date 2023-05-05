@@ -1,13 +1,11 @@
 # Ansible Information
 
-Đây là trang giới thiệu về Ansible cũng như các code mẫu của mình.
+# Đây là trang giới thiệu về Ansible cũng như các code mẫu của mình.
 ----
 
 Ansible là một công cụ quản lý, triển khai và điều phối cấu hình CNTT mã nguồn mở. Nó nhằm mục đích cung cấp mức tăng năng suất lớn trước nhiều thách thức tự động hóa. Công cụ này rất đơn giản để sử dụng nhưng đủ mạnh để tự động hóa các môi trường ứng dụng CNTT nhiều tầng phức tạp.
 
----
-1) Vậy tại sao chúng ta lại cần Ansible??
----
+## 1) Vậy tại sao chúng ta lại cần Ansible??
 
 Trước đây, các quản trị viên hệ thống quản lý các máy chủ bằng tay, cài đặt phần mềm, thay đổi cấu hình và quản trị các dịch vụ trên các máy chủ riêng lẻ.
 
@@ -28,9 +26,7 @@ Ansible là một công cụ hữu ích cho phép bạn tạo các nhóm máy, m
 
 Không có phần mềm máy khách nào khác được cài đặt trên các node (nút). Nó sử dụng SSH để kết nối với các node. Ansible chỉ cần được cài đặt trên máy điều khiển (máy mà bạn sẽ chạy lệnh), thậm chí có thể là máy tính xách tay của bạn. Nó là một giải pháp đơn giản cho một vấn đề phức tạp.
 
----
-2) Ưu điểm của việc sử dụng Ansible
----
+## 2) Ưu điểm của việc sử dụng Ansible
 
 - Đơn giản hóa nghiệp vụ (Simple)
 - Không cần tác nhân hỗ trợ (Agentless)

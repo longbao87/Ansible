@@ -1,5 +1,1 @@
-IP:{{ inventory_hostname }}
----
-Hostname:{{ ansible_net_hostname }}
-OS Version:{{ ansible_net_version }} | Model:{{ ansible_net_model }} | SN:{{ ansible_net_serialnum }}
-
+{{ inventory_hostname }} | {{ ansible_net_hostname }} | {{ ansible_net_version }} | {{ ansible_net_model }} | {{ ansible_net_serialnum }}
