@@ -1,6 +1,6 @@
 ---
 - name: Sample IOS show version for Ansible 2.9
-  hosts: all
+  hosts: routers
   gather_facts: no
   connection: network_cli
 
@@ -10,7 +10,7 @@
     ios_facts:
       gather_subset: hardware
 
-  - name: Devices without version 17.06.04
+  - name: Devices without version 16.08.03
     debug:
       var: ansible_net_version
-    when: ansible_net_version != "17.06.04"
+    when: ansible_net_version != "16.08.03"
