@@ -1,0 +1,13 @@
+---
+- name: show ip int brief
+  hosts: test
+  gather_facts: no
+
+  tasks:
+    - name: Execute command SHOW
+      ios_command:
+        commands:
+          - show ip int brief
+      register: output
+
+    - debug: var=output.stdout_lines

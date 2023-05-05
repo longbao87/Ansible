@@ -1,6 +1,6 @@
 ---
 - name: Sample IOS show version for Ansible 2.9
-  hosts: test
+  hosts: all
   gather_facts: no
   connection: network_cli
 
