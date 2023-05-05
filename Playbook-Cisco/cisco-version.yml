@@ -1,0 +1,25 @@
+---
+- name: BackUP Configuration
+  hosts: switches
+  gather_facts: no
+  connection: network_cli
+ 
+  tasks:
+    - name: show version for cisco routers
+      ios_command:
+        commands:
+          - show running-config
+          - show version
+ 
+      register: cisco_config
+ 
+ 
+    - name: Save the config
+      copy:
+        content: "{{ cisco_config.stdout[0] }}"
+        dest: "/home/baolnguyen/baolnguyen-code/{{ inventory_hostname }}_backup.txt"
+ 
+    - name: Get show version
+      copy:
+        content: "{{ cisco_config.stdout[1] }}"
+        dest: "/home/baolnguyen/baolnguyen-code/{{ inventory_hostname }}_show_versions.txt"

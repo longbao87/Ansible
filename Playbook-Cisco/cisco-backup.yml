@@ -1,0 +1,19 @@
+---
+- name: BackUP Configuration
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+ 
+  tasks:
+    - name: show version for cisco
+      ios_command:
+        commands:
+          - show running-config
+          - show version
+          
+      register: cisco_config
+ 
+    - name: Save the config
+      copy:
+        content: "{{ cisco_config.stdout[0] }}"
+        dest: "/home/baolnguyen/OPSWAT-BACKUP/{{ inventory_hostname }}_backup.txt"

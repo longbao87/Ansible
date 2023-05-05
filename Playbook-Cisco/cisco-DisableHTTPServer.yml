@@ -1,0 +1,18 @@
+#Cisco IOS Harderning Playbook
+#Disable HTTP HTTPS Server
+---
+- name: HOSTNAME Configuration
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+ 
+  tasks:
+    - name: Disable HTTP/HTTPS Server
+      ios_config:
+        lines:
+        - no ip http server
+        - no ip http secure-server
+    
+    - name: SAVE Config
+      ios_config:
+        save_when: modified

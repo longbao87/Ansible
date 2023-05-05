@@ -1,0 +1,28 @@
+---
+- name: HOSTNAME Configuration
+  hosts: TEST
+  gather_facts: no
+  connection: network_cli
+ 
+  tasks:
+    - name: Change HOSTNAME
+      ios_config:
+        commands: "hostname CITIN-SWA28-VNPN"
+    
+    - name: SAVE Config
+      ios_config:
+        save_when: modified
+
+- name: GET HOSTNAME
+  hosts: TEST
+  gather_facts: no
+  connection: network_cli
+  
+  tasks:
+    - name: Get HOSTNAME
+      cisco.ios.ios_facts:
+        gather_subset: all
+
+    - name: RESULT
+      debug:
+        msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
